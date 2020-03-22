@@ -1,0 +1,3 @@
+#! /bin/sh
+
+sudo ifconfig et0 192.168.1.25

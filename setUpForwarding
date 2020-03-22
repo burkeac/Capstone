@@ -1,0 +1,4 @@
+#! /bin/sh
+
+sudo socat TCP-LISTEN:4172,fork TCP:192.168.1.100:4172 &
+sudo socat UDP-LISTEN:4172,fork UDP:192.168.1.100:4172 &
