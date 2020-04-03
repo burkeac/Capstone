@@ -22,7 +22,7 @@ app.use(cors({
   }));
 
 app.get('/', function(req, res){
-	console.log('ajax request')
+	// console.log('ajax request')
 	// msleep(2000);
 	res.send('Ping Reply - Hi there! :-)')
 });

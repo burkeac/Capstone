@@ -12,7 +12,7 @@ const port = 4000;
 app.use('/public', express.static('public'));
 
 app.get('/', function(req, res){
-    console.log('Request for HTML page')
+    // console.log('Request for HTML page')
     res.sendFile(path.join(__dirname + "/private/webPing.html"));
 });
 
