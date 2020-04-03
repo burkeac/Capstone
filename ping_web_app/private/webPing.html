@@ -1,9 +1,27 @@
 <!--This is the file that will load and have the feedback-->
 
+<!doctype html>
+
 <head>
     <script src="public/js/webPingClient.js" ></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
 </head>
 <body>
-    <h1> Click the button to test the ping </h1> 
-    <button onclick="ping()"> Ping </button>
+
+    <div class="w3-container">
+
+        <h1 style="text-align: center; text-decoration: underline; padding-top: 5%;"> Capstone Test Page</h1>
+        <h3 style="text-align: center;"> The world gets to see Adam's web design skills 😬 </h3>
+
+        <div style="display: flex; justify-content: center;" >
+            <button id="pingbutton" class="w3-button w3-flat-peter-river" onclick="ping(); updateHTML()"> Ping</button>
+        </div>
+        <h3 style="text-align: center;"> Average Round Trip Latency to Adam's home:</h3>
+        <h1 style="text-align: center;" id="report">-- ms</h1>
+        <br><br>
+        <p style="text-align: center;">The average is formed through the use of 10 pings.</p>
+        <p style="text-align: center;">Refresh the page to try again.</p>
+    </div>
+ 
 </body>
