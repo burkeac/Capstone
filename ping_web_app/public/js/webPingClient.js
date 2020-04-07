@@ -1,11 +1,10 @@
 // webPingClient.js
 // Adam Burke (axb6044@rit.edu)
-// April 2, 2020
-
-console.log('from external file')
+// April 7, 2020
 
 var sumRTL = 0;
 var numberOfPings = 0;
+const totalPings = 10;
 
 function updateHTML(){
     document.getElementById('report').innerHTML = 'calculating...'
@@ -13,29 +12,32 @@ function updateHTML(){
 }
 
 function ping(){
-    console.log('start time: ' + startTime);
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://127.0.0.1:3000/", false);
-    xhttp.onload = function() { 
-        var endTime = new Date().getTime()
-        console.log(xhttp.responseText)
+    // Create WebSocket connection.
+    const socket = new WebSocket('ws://localhost:3000');
+
+    // When connection is formed, start ping series
+    socket.addEventListener('open', function (event) {
+        sendRecvPing();
+    });
+    
+    function sendRecvPing(){
+        var startTime = new Date().getTime();
+        socket.send('Hello Server!');
         
-        // console.log('end time: ' + endTime)
-        
-        var RTL = endTime - startTime;
-        console.log('time elapsed: ' + RTL);
-
-        sumRTL += RTL;
-
-        console.log(numberOfPings)
-        if(numberOfPings < 10){
-            numberOfPings++
-            setTimeout(function(){ping(); }, 1000)
-        }else{
-            document.getElementById('report').innerHTML = sumRTL/10 + " ms"
-        }
-    };
-    var startTime = new Date().getTime(); 
-    xhttp.send(); 
+        // Listen for messages
+        socket.onmessage = function (event) {
+            var endTime = new Date().getTime();
+            sumRTL = endTime - startTime;
+            console.log(numberOfPings)
+            // console.log(endTime - startTime);
+            
+            if(numberOfPings < totalPings){
+                numberOfPings++;
+                sendRecvPing();
+            }else{
+                document.getElementById('report').innerHTML = sumRTL/totalPings + " ms"
+            }
+        };
+    }
 }
