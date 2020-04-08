@@ -28,8 +28,8 @@ function ping(){
         // Listen for messages
         socket.onmessage = function (event) {
             var endTime = new Date().getTime();
-            sumRTL = endTime - startTime;
-            console.log(numberOfPings)
+            sumRTL += endTime - startTime;
+            console.log('ping number: ' + numberOfPings + ' ping time: ' + (endTime - startTime))
             // console.log(endTime - startTime);
             
             if(numberOfPings < totalPings){
