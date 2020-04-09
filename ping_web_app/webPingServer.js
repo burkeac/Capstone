@@ -9,14 +9,16 @@ function msleep(n) {
 	Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, n);
 }
 
+const ServPort = 3000;
+
 // import and create a new websocket server
 const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: 3000 });
+const wss = new WebSocket.Server({ port: ServPort });
+console.log('"Web ping server running on port: ' + ServPort + '!')
 
 // Listen and reply to pings
 wss.on('connection', function connection(ws) {
 	ws.on('message', function incoming(message) {
-		console.log('received: ' + message);
 		ws.send('Hello Client!')
 	});
 });
