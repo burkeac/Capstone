@@ -7,15 +7,55 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const port = 4000;
+const fs = require('fs');
+const requestIP = require('request-ip');
 
+const port = 4000;
+const responseFileName = "Responses.csv";
+
+app.use(express.urlencoded({extended: true}));
+app.use(requestIP.mw())
 app.use('/public', express.static('public'));
 
+// main page!
 app.get('/', function(req, res){
     // console.log('Request for HTML page')
+    res.sendFile(path.join(__dirname + "/private/Survey.html"));
+});
+
+app.post('/', (req, res) => {
+
+	// Format results
+	results = String("Lab: " + req.body.WhichLab + ", q2: " + req.body.q2)
+	
+	var ip = req.clientIp
+	// console.log(ip);
+
+	// console.log(results)
+	console.log(req.body.typeOfWork)
+	console.log(req.body.pingResult)
+
+	// Save to file
+	fs.appendFile(responseFileName + '\n', results, function (err) {
+		if (err) throw err;
+	})
+	
+	res.redirect("/thankyou")
+})
+
+// Thank you page
+app.get('/thankyou', function(req, res){
+	// console.log('Request for HTML page')
+    res.sendFile(path.join(__dirname + "/private/thankyou.html"));
+});
+
+// Thank you page
+app.get('/ping', function(req, res){
+	// console.log('Request for HTML page')
     res.sendFile(path.join(__dirname + "/private/webPing.html"));
 });
 
+// not found
 app.get('*', function(req, res){
 	res.send('Page not found :(');
 });

@@ -1,51 +1,27 @@
+
 <!--This is the file that will load and have the feedback-->
 
 <!doctype html>
 
 <head>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
     <script src="public/js/webPingClient.js" ></script>
-    <link rel="stylesheet" href="public/CSS/webPingClient.css">
-    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
 </head>
-
-
 <body>
 
+    <div class="w3-container">
 
+        <h1 style="text-align: center; text-decoration: underline; padding-top: 5%;"> Capstone Test Page</h1>
 
-    <div class="overallContainer">
-        <h1 style="text-decoration: underline; padding-top: 5%;"> Capstone User Experince Survey</h1>
-        <h3> Thank you for participating in my capstone project. The following form will ask a few questions regarding your experience using the CAD remote access service during the COVID-19 pandemic.  </h3>
-
-        <h4 style="color: red;"> Before begining, please ensure this form is running on your local machine's browser. </h4>
-
-        <form>
-
-
-                <!-- might have to include form='TheFormId' to select -->
-            <div style="text-align: left;">
-                <label for="exampleFormControlSelect1">Select the lab you are accessing remotly.</label>
-                <select class="custom-select" id="exampleFormControlSelect1" required>
-                    <option disabled selected value> -- select an option -- </option>
-                    <option value="MSS-2010">MSS-2010 | MAGIC 3D Animation</option>
-                    <option value="MSS-2114">MSS-2114 | MAGIC Virtual Lab</option>
-                </select>
-            </div>
-
-            <div style="text-align: left;">
-                <label> In comparison to working directly at a lab workstation, how similar is using remote access?</label>
-                Very Similar
-                    <span style="display: inline-block; margin: 5%;"> <input type="radio" name="q2" value="1" id="q1_1"> <label for="q1_1">(1)</label> </span>    
-                    <span style="display: inline-block; margin: 5%;"> <input type="radio" name="q2" value="1" id="q2_2"> <label for="q1_2">(2)</label> </span>
-                    <!-- <input type="radio" name="q2" value="2">
-                    <input type="radio" name="q2" value="3">
-                    <input type="radio" name="q2" value="4"> -->
-                Very Different
-            </div>
-            
+        <div style="display: flex; justify-content: center;" >
+            <button id="pingbutton" class="w3-button w3-flat-peter-river" onclick="ping(); updateHTML()"> Ping</button>
+        </div>
+        <h3 style="text-align: center;"> Average Round Trip Latency to Adam's home:</h3>
+        <h1 style="text-align: center;" id="report">-- ms</h1>
+        <br><br>
+        <p style="text-align: center;">The average is formed through the use of 10 pings.</p>
+        <p style="text-align: center;">Refresh the page to try again.</p>
     </div>
-
  
 </body>

@@ -1,0 +1,142 @@
+<!--This is the file that will load and have the feedback-->
+
+<!doctype html>
+
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="public/js/webPingClient.js" ></script>
+    <link rel="stylesheet" href="public/CSS/webPingClient.css">
+    
+</head>
+
+
+<body>
+<div class="w3-auto" style="padding-top: 10px;">
+    <!-- start header -->
+    <div class="w3-container w3-card w3-orange"> <h1>Capstone User Experince Survey</h1></div>
+
+    <!-- Thank you, please makesure you are on the local machine -->
+    <div class="w3-container w3-auto">
+        <h3> Thank you for participating in my capstone project. The following form will ask a few 
+            questions regarding your experience using the CAD remote access service during the COVID-19 pandemic.  </h3>
+        <h4 style="color: red;"> Please be sure that this webpage is loaded on your <u> local machine</u>. 
+            <b>Not the remote</b> RIT machine! <a onclick="OpenWindow()" style="text-decoration: underline; cursor: pointer;"> click here</a> to find out why!</h2>
+        <p> If there is a problem or you have questions, please email me at <a href="mailto:axb6044@rit.edu" > axb6044@rit.edu</a>.</p>
+        <p> Please note, this capstone is NOT affiliated with the CAD-Tech COVID-19-remote-desktop solution.
+            This is part of a CAD capstone project revolving around the use of such systems.</p>
+    </div>
+    
+    <!-- more info popup -->
+    <script> function OpenWindow() { document.getElementById('moreInfo').style.display='block' } </script>  
+    <div id="moreInfo" class="w3-modal">
+        <div class="w3-modal-content">
+          <div class="w3-container">
+            <span onclick="document.getElementById('moreInfo').style.display='none'" class="w3-button w3-display-topright">&times;</span> <br>
+            <p> Along with your responses, this form will calculate the responsiveness of the network between your host computer and the remote computers.
+                As a result, this form MUST be on the client machine. </p> <br>
+          </div>
+        </div>
+      </div>
+
+    <!-- start form -->
+    <form method="POST" action="/" class="w3-panel w3-card-4" style="padding-bottom: 30px;"> 
+        <!-- which lab are you in? -->
+        <p>
+            <label for="WhichLab">Select the lab you are accessing remotly.*</label> <br>
+            <select required class="w3-select" style="width: 50%;" name="WhichLab" id="WhichLab">
+                <option value="" disabled selected> -- please choose an option -- </option>
+                <option value="MSS-2010"> MSS-2010 | MAGIC 3D Lab </option>
+                <option value="MSS-2114"> MSS-2114 | MAGIC Virtual Lab </option>
+            </select>
+        </p>
+
+        <hr>
+
+        <!-- Q2 -->
+        <label> In comparison to working directly at a lab workstation, how similar is using remote access?*</label> <br>
+        <p class="w3-cell-row">
+            <span class="w3-cell"> <input required type="radio" id="q2_1" name="q2" value="1"> <label for="q2_1"> 1 </label>      
+                <br> <label style="position: absolute;"> Not at all similar </label></span>
+
+            <span class="w3-cell"> <input required type="radio" id="q2_2" name="q2" value="2"> <label for="q2_2"> 2 </label></span>
+
+            <span class="w3-cell"> <input required type="radio" id="q2_3" name="q2" value="3"> <label for="q2_3"> 3 </label></span>
+
+            <span class="w3-cell"> <input required type="radio" id="q2_4" name="q2" value="4"> <label for="q2_4"> 4 </label>
+                <br> <label style="position: absolute;"> Very Similar </label> </span>
+        </p> 
+
+        <br><hr>
+
+        <!-- Q3 -->
+        <label> In terms of computer input / output (mouse/keyboard/display) how "responsive" is the remote system?*</label> <br>
+        <p class="w3-cell-row">
+            <span class="w3-cell"> <input required type="radio" id="q3_1" name="q3" value="1"> <label for="q3_1"> 1 </label>      
+                <br> <label style="position: absolute;"> Very Unresponsive </label></span>
+
+            <span class="w3-cell"> <input required type="radio" id="q3_2" name="q3" value="2"> <label for="q3_2"> 2 </label></span>
+
+            <span class="w3-cell"> <input required type="radio" id="q3_3" name="q3" value="3"> <label for="q3_3"> 3 </label></span>
+
+            <span class="w3-cell"> <input required type="radio" id="q3_4" name="q3" value="4"> <label for="q3_4"> 4 </label>
+                <br> <label style="position: absolute;"> Very Responsive </label> </span>
+        </p> 
+
+        <br><hr>
+
+
+        <!-- Q4 -->
+        <label> If given the option (outside of current surcomstances), would you use a remote desktop enviroment in this state? (For school or work)*</label> <br>
+        <p class="w3-cell-row">
+            <span class="w3-cell"> <input required type="radio" id="q4_1" name="q4" value="1"> <label for="q4_1"> 1 </label>      
+                <br> <label style="position: absolute;"> Very Unlikely </label></span>
+
+            <span class="w3-cell"> <input required type="radio" id="q4_2" name="q4" value="2"> <label for="q4_2"> 2 </label></span>
+
+            <span class="w3-cell"> <input required type="radio" id="q4_3" name="q4" value="3"> <label for="q4_3"> 3 </label></span>
+
+            <span class="w3-cell"> <input required type="radio" id="q4_4" name="q4" value="4"> <label for="q4_4"> 4 </label>
+                <br> <label style="position: absolute;"> Very Likely </label> </span>
+        </p> 
+        
+        <br><hr>
+
+        <!-- Q5 -->
+        <p>
+            <label for="typeOfWork">What type of work are you use the remote desktops enviroments for?*</label> <br>
+            <select required class="w3-select" style="width: 50%;" name="typeOfWork" id="typeOfWork">
+                <option value="" disabled selected> -- please choose an option -- </option>
+                <option value="LiveActionEditing">  Live Action Editing </option>
+                <option value="ColorCorrection">    Color Correction / Grading</option>
+                <option value="VisualEffects">      Visual Effects </option>
+                <option value="3DAnimation">        3D Animation </option>
+                <option value="2DAnimation">        2D Animation </option>
+            </select>
+        </p>
+
+        <hr>
+
+        <!-- Q6 Additional Information -->
+        <p>
+            <label> Please specify any software you were using.*</label> <br>
+            <input required type="text" class="w3-input w3-animate-input w3-border w3-round" style="width:50%" name="software" placeholder="DCP-O Matic">
+        </p>
+        <hr>
+
+        <p>
+            <label> If you have any additional comments, please list them.</label> <br>
+            <input type="text" class="w3-input w3-animate-input w3-border w3-round" style="width:50%" name="additionalComments" placeholder="Additional Comments?">
+        </p>
+        <hr>
+
+        <input hidden type="text" name="pingResult" id="pingResult" value="1.25">
+
+        <p>* Denotes required field!</p>
+        <input type="submit" class="w3-button w3-orange">
+
+    </form>
+        
+</div>
+
+   
+</body>
