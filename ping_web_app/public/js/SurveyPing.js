@@ -34,7 +34,7 @@ function ping(){
                 numberOfPings++;
                 sendRecvPing();
             }else{
-                document.getElementById('averagePing').value = sumRTL/totalPings + " ms"
+                document.getElementById('averagePing').value = sumRTL/totalPings
                 document.getElementById('pingResult').value = pingTimes;
             }
         };

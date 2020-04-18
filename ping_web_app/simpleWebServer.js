@@ -25,18 +25,26 @@ app.get('/', function(req, res){
 
 app.post('/', (req, res) => {
 
-	// Format results
-	results = String("Lab: " + req.body.WhichLab + ", q2: " + req.body.q2)
-	
 	var ip = req.clientIp
-	// console.log(ip);
 
-	// console.log(results)
-	console.log(req.body.typeOfWork)
-	console.log(req.body.pingResult)
+	// Format results
+	results = String(
+		'"' + ip + '", "'
+		+ req.body.WhichLab + '", "'
+		+ req.body.q2 + '", "'
+		+ req.body.q3 + '", "'
+		+ req.body.typeOfWork + '", "'
+		+ req.body.otherTypeOfWork + '", "'
+		+ req.body.softwareTask + '", "' 
+		+ req.body.additionalComments + '", "' 
+		+ req.body.pingResult + '", "'
+		+ req.body.averagePing + '"'
+	)
+
+	console.log(results);
 
 	// Save to file
-	fs.appendFile(responseFileName + '\n', results, function (err) {
+	fs.appendFile((responseFileName), results + '\n', function (err) {
 		if (err) throw err;
 	})
 	
