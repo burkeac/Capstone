@@ -29,15 +29,15 @@ app.post('/', (req, res) => {
 
 	// Format results
 	results = String(
-		'"' + ip + '", "'
-		+ req.body.WhichLab + '", "'
-		+ req.body.q2 + '", "'
-		+ req.body.q3 + '", "'
-		+ req.body.typeOfWork + '", "'
-		+ req.body.otherTypeOfWork + '", "'
-		+ req.body.softwareTask + '", "' 
-		+ req.body.additionalComments + '", "' 
-		+ req.body.pingResult + '", "'
+		'"' + ip + '","'
+		+ req.body.WhichLab + '","'
+		+ req.body.q2 + '","'
+		+ req.body.q3 + '","'
+		+ req.body.typeOfWork + '","'
+		+ req.body.otherTypeOfWork + '","'
+		+ req.body.softwareTask + '","' 
+		+ req.body.additionalComments + '","' 
+		+ req.body.pingResult + '","'
 		+ req.body.averagePing + '"'
 	)
 
