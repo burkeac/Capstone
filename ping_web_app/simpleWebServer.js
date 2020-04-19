@@ -39,10 +39,12 @@ app.get('/', function(req, res){
 app.post('/', (req, res) => {
 
 	var ip = req.clientIp
+	var dt = new Date();
 
 	// Format results
 	results = String(
 		'"' + ip + '","'
+		+ dt.toLocaleString() + '","'
 		+ req.body.WhichLab + '","'
 		+ req.body.q2 + '","'
 		+ req.body.q3 + '","'
