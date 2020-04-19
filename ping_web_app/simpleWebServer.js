@@ -19,8 +19,21 @@ app.use('/public', express.static('public'));
 
 // main page!
 app.get('/', function(req, res){
-    // console.log('Request for HTML page')
-    res.sendFile(path.join(__dirname + "/private/Survey.html"));
+	var IP = req.clientIp
+
+	// IP = "::ffff:129.21.0.0"
+
+	// console.log('Request for HTML page')
+	try{
+		if(IP.replace("::ffff:", "").split(".")[0] == "129" && IP.replace("::ffff:", "").split(".")[1] == "21"){
+			res.sendFile(path.join(__dirname + "/private/onRITnetwork.html"));
+		}else{
+			res.sendFile(path.join(__dirname + "/private/Survey.html"));
+		}
+	}catch{
+		res.sendFile(path.join(__dirname + "/private/Survey.html"));
+	}
+    
 });
 
 app.post('/', (req, res) => {
@@ -50,6 +63,10 @@ app.post('/', (req, res) => {
 	
 	res.redirect("/thankyou")
 })
+
+app.get('/override', function(req, res){
+	res.sendFile(path.join(__dirname + "/private/Survey.html"));
+});
 
 // Thank you page
 app.get('/thankyou', function(req, res){
