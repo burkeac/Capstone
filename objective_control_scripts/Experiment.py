@@ -27,11 +27,13 @@ def CreateUserFile():
 
 
 def setLatency(latency: int):
-    # os.system("")
+    output = os.system("./setLatency " + str(latency) + "ms")
+    print(output)
     print("Set Latency " + str(latency))
 
 def removeLatency():
-    # os.system("")
+    output = os.system("./removeLatency")
+    print(output)
     print("Latency Removed")
 
 def runTrial(latency1: int, latency2: int):
